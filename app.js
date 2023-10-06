@@ -16,14 +16,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // create a GET route for cats/facts
-app.get('/', (req, res) => {
-  res.send('');
-});
+// app.get('/', (req, res) => {
+//   res.send('');
+// });
 
 app.get('/cats/fact', async function(req,res){
-  const apiReponse = await fetch('https://catfact.ninja/fact');
+  const apiResponse = await fetch('https://catfact.ninja/fact');
   let catFact = apiResponse.data.fact;
-  res.render('cat/fact',)
+  res.render('cat-fact', { catFact });
 })
 
 app.use(logger('dev'));
